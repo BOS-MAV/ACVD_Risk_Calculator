@@ -23,15 +23,15 @@ $(document).ready(function () {
     $("#txtAge").tooltip({title: "Please enter an age between 20 and 79", placement: "bottom", trigger: "manual"});
     $("#sexMark").tooltip({title: "Please choose either Male or Female", placement: "bottom", trigger: "manual"});
     $("#raceMark").tooltip({title: "Please choose White, African American, Hispance or Other", placement: "bottom", trigger: "manual"});
-    $("#BP_Sys").tooltip({title: "Please enter a systolic blood pressure between 90 and 200 mm HG", placement: "right", trigger: "manual"});
+    $("#BP_Sys").tooltip({title: "Please enter a systolic blood pressure between 80 and 300 mm HG", placement: "right", trigger: "manual"});
     $("#diabMark").tooltip({title: "Please choose either yes or no",placement: "bottom", trigger: "manual"});
     $("#smokeMark").tooltip({title: "Please choose either current or never",placement:"bottom",trigger:"manual"});
     $("#hyperMark").tooltip({title: "Please choose either yes or no",placement:"bottom",trigger:"manual"});
     $("#statinMark").tooltip({title: "Please choose either yes or no",placement:"bottom", trigger:"manual"});
-    $("#BP_Dia").tooltip({title: "Please enter a diastolic blood pressure between 60 and 130 mm HG", placement: "right", trigger: "manual"});
-    $("#TotChol").tooltip({title: "Please enter total cholesterol between 130 and 320 mg/dL", placement: "bottom", trigger: "manual"});
-    $("#HDL").tooltip({title: "Please enter HDL cholesterol between 20 and 100 mg/dL", placement: "bottom", trigger: "manual"});
-    $("#LDL").tooltip({title: "Please enter LDL cholesterol between 30 and 300 mg/dL", placement: "bottom", trigger: "manual"});
+    $("#BP_Dia").tooltip({title: "Please enter a diastolic blood pressure between 50 and 180 mm HG", placement: "right", trigger: "manual"});
+    $("#TotChol").tooltip({title: "Please enter total cholesterol between 0 and 500 mg/dL", placement: "bottom", trigger: "manual"});
+    $("#HDL").tooltip({title: "Please enter HDL cholesterol between 0 and 150 mg/dL", placement: "bottom", trigger: "manual"});
+    $("#LDL").tooltip({title: "Please enter LDL cholesterol between 0 and 400 mg/dL", placement: "bottom", trigger: "manual"});
     $('#sub').on('click', function (event) {
         var isvalidate = $("#myForm")[0].checkValidity();
         if ((isvalidate) && txtAge_Val() && bpSys_Val() && bpDia_Val() && totChol_Val() && HDL_Val() && LDL_Val()) {
@@ -256,7 +256,7 @@ function txtAge_Val() {
 function bpSys_Val() {
     var input = $("#BP_Sys");
 
-    if (parseInt(input.val()) < 90 || parseInt(input.val()) > 200 || input.val() === "")
+    if (parseInt(input.val()) < 80 || parseInt(input.val()) > 300 || input.val() === "")
     {
 
         if (bpSysToolTipOn ===1)
@@ -285,7 +285,7 @@ function bpSys_Val() {
 function bpDia_Val() {
     var input = $("#BP_Dia");
 
-    if (parseInt(input.val()) < 60 || parseInt(input.val()) > 130 || input.val() === "")
+    if (parseInt(input.val()) < 50 || parseInt(input.val()) > 180 || input.val() === "")
     {
 
         if (bpDiaToolTipOn ===1)
@@ -314,7 +314,7 @@ function bpDia_Val() {
 function totChol_Val() {
     var input = $("#TotChol");
 
-    if (parseInt(input.val()) < 130 || parseInt(input.val()) > 320 || input.val() === "")
+    if (parseInt(input.val()) < 0 || parseInt(input.val()) > 500 || input.val() === "")
     {
 
         if (totCholToolTipOn === 1)
@@ -343,7 +343,7 @@ function totChol_Val() {
 function HDL_Val() {
     var input = $("#HDL");
 
-    if (parseInt(input.val()) < 20 || parseInt(input.val()) > 100 || input.val() === "")
+    if (parseInt(input.val()) < 0 || parseInt(input.val()) > 150 || input.val() === "")
     {
 
         if (HDLToolTipOn  ===1) 
@@ -372,7 +372,7 @@ function HDL_Val() {
 function LDL_Val() {
     var input = $("#LDL");
 
-    if (parseInt(input.val()) < 30 || parseInt(input.val()) > 300 || input.val() === "")
+    if (parseInt(input.val()) < 0 || parseInt(input.val()) > 400 || input.val() === "")
     {
 
         if (LDLToolTipOn ===1)
