@@ -31,7 +31,7 @@ function calc_risk() {
                 else
                     diabetes = 0;
                 diabetesWeight = diabetes * 0.46548;
-                if ($("input[name = 'Smoker']:checked").val() === "Current")
+                if ($("input[name = 'Smoker']:checked").val() === "Ever")
                     smoker = 1;
                 else
                     smoker = 0;
