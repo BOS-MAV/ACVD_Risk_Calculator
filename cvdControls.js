@@ -22,10 +22,10 @@ $(document).ready(function () {
     $("#txtAge").focus();
     $("#txtAge").tooltip({title: "Please enter an age between 20 and 79", placement: "bottom", trigger: "manual"});
     $("#sexMark").tooltip({title: "Please choose either Male or Female", placement: "bottom", trigger: "manual"});
-    $("#raceMark").tooltip({title: "Please choose White, African American, Hispance or Other", placement: "bottom", trigger: "manual"});
+    $("#raceMark").tooltip({title: "Please choose White, African American or Other", placement: "bottom", trigger: "manual"});
     $("#BP_Sys").tooltip({title: "Please enter a systolic blood pressure between 80 and 300 mm HG", placement: "right", trigger: "manual"});
     $("#diabMark").tooltip({title: "Please choose either yes or no",placement: "bottom", trigger: "manual"});
-    $("#smokeMark").tooltip({title: "Please choose either current or never",placement:"bottom",trigger:"manual"});
+    $("#smokeMark").tooltip({title: "Please choose either ever or never",placement:"bottom",trigger:"manual"});
     $("#hyperMark").tooltip({title: "Please choose either yes or no",placement:"bottom",trigger:"manual"});
     $("#statinMark").tooltip({title: "Please choose either yes or no",placement:"bottom", trigger:"manual"});
     $("#BP_Dia").tooltip({title: "Please enter a diastolic blood pressure between 50 and 180 mm HG", placement: "right", trigger: "manual"});
@@ -36,7 +36,7 @@ $(document).ready(function () {
         var isvalidate = $("#myForm")[0].checkValidity();
         if ((isvalidate) && txtAge_Val() && bpSys_Val() && bpDia_Val() && totChol_Val() && HDL_Val() && LDL_Val()) {
             event.preventDefault();
-            $('#message').html('Your score is: ' + calc_risk());
+            $('#message').html('Your 5-year ASCVD risk is ' + calc_risk()+"%");
             $('#myModal').modal('show');
         }
         else
@@ -71,7 +71,7 @@ $(document).ready(function () {
                         else
                         {
                             $("#diabMark").tooltip("hide");
-                            if (($("input[name = 'Smoker']:checked").val() !== 'Current') && ($("input[name = 'Smoker']:checked").val() !== 'Never'))
+                            if (($("input[name = 'Smoker']:checked").val() !== 'Ever') && ($("input[name = 'Smoker']:checked").val() !== 'Never'))
                             {
                                 $("#smokeMark").tooltip("show");
                                 $("#smoker").focus();
