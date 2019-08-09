@@ -163,27 +163,117 @@ $(document).ready(function () {
 
     $("input[name='Sex']").change(function () {
         $("#sexMark").tooltip("hide");
+        if ($("input[name='Sex']:checked").val()==="Male")
+        {
+            $("#sexMark").addClass("btn-selected");
+            $("#maleGlyph").show();
+            $("#femaleGlyph").hide();            
+            $("#sexMark1").removeClass("btn-selected");
+        }
+        else
+        {
+            
+            $("#sexMark1").addClass("btn-selected");
+            $("#femaleGlyph").show();
+            $("#maleGlyph").hide();
+            $("#sexMark").removeClass("btn-selected");
+        }
         $("#Race").focus();
     });
 
     $("input[name='Race']").change(function () {
         $("#raceMark").tooltip("hide");
+        if ($("input[name='Race']:checked").val()==="White")
+        {
+            $("#raceMark").addClass("btn-selected");
+            $("#whiteGlyph").show();
+            $("#afrAmGlyph").hide();            
+            $("#raceMark1").removeClass("btn-selected");
+        }
+        else
+        {
+            
+            $("#raceMark1").addClass("btn-selected");
+            $("#afrAmGlyph").show();
+            $("#whiteGlyph").hide();
+            $("#raceMark").removeClass("btn-selected");
+        }
         $("#Diabetes").focus();
     });
     $("input[name='Diabetes']").change(function () {
         $("#diabMark").tooltip("hide");
+        if ($("input[name='Diabetes']:checked").val()==="Yes")
+        {
+            $("#diabMark").addClass("btn-selected");
+            $("#diabYGlyph").show();
+            $("#diabNGlyph").hide();            
+            $("#diabMark1").removeClass("btn-selected");
+        }
+        else
+        {
+            
+            $("#diabMark1").addClass("btn-selected");
+            $("#diabNGlyph").show();
+            $("#diabYGlyph").hide();
+            $("#diabMark").removeClass("btn-selected");
+        }
         $("#Smoker").focus();
     });
     $("input[name='Smoker']").change(function () {
        $("#smokeMark").tooltip("hide");
+       if ($("input[name='Smoker']:checked").val()==="Yes")
+        {
+            $("#smokeMark").addClass("btn-selected");
+            $("#smokeYGlyph").show();
+            $("#smokeNGlyph").hide();            
+            $("#smokeMark1").removeClass("btn-selected");
+        }
+        else
+        {
+            
+            $("#smokeMark1").addClass("btn-selected");
+            $("#smokeNGlyph").show();
+            $("#smokeYGlyph").hide();
+            $("#smokeMark").removeClass("btn-selected");
+        }
        $("#Hypertension").focus();
     });
     $("input[name='Hypertension']").change(function (){
        $("#hyperMark").tooltip("hide");
+       if ($("input[name='Hypertension']:checked").val()==="Yes")
+        {
+            $("#hyperMark").addClass("btn-selected");
+            $("#hyperYGlyph").show();
+            $("#hyperNGlyph").hide();            
+            $("#hyperMark1").removeClass("btn-selected");
+        }
+        else
+        {
+            
+            $("#hyperMark1").addClass("btn-selected");
+            $("#hyperNGlyph").show();
+            $("#hyperYGlyph").hide();
+            $("#hyperMark").removeClass("btn-selected");
+        }
        $("Statin").focus();
     });
     $("input[name='Statin']").change(function () {
        $("#statinMark").tooltip("hide");
+       if ($("input[name='Statin']:checked").val()==="Yes")
+        {
+            $("#statinMark").addClass("btn-selected");
+            $("#statinYGlyph").show();
+            $("#statinNGlyph").hide();            
+            $("#statinMark1").removeClass("btn-selected");
+        }
+        else
+        {
+            
+            $("#statinMark1").addClass("btn-selected");
+            $("#statinNGlyph").show();
+            $("#statinYGlyph").hide();
+            $("#statinMark").removeClass("btn-selected");
+        }
        $("#BP_Sys").focus();
     });
     $("#BP_Sys").blur(function () {
