@@ -12,7 +12,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <title>Atherosclerotic Cardiovascular Disease Risk Prediction Calculator</title>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type ="text/css" href="cvdStyles.css">
+      
     </head>
     <body >
         <form id ="myForm" >
@@ -37,10 +39,12 @@
                                 <div class="btn-group colors" data-toggle="buttons" >
                                     <label class ="topLabel">Sex</label>
                                     <div style="clear: both;"></div>
-                                    <label class="btn btn-primary btn-sm" id = "sexMark"> 
-                                        <input type="radio" name="Sex" value="Male" required > Male
+                                    <label class="btn btn-primary btn-sm glyphicon" id = "sexMark"> 
+                                        <span class = "glyphicon glyphicon-check" id = "maleGlyph" style="display:none"></span>
+                                        <input type="radio" name="Sex" value="Male" required  > Male
                                     </label>
-                                    <label class="btn btn-primary btn-sm">
+                                    <label class="btn btn-primary btn-sm glyphicon" id= "sexMark1">
+                                        <span class = "glyphicon glyphicon-check" id = "femaleGlyph" style="display:none"></span>
                                         <input type="radio" name="Sex" value="Female" required> Female
                                     </label>
                                 </div>
@@ -50,15 +54,14 @@
                                     <label class ="topLabel">Race</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm" id="raceMark"> 
+                                        <span class = "glyphicon glyphicon-check" id = "whiteGlyph" style="display:none"></span>
                                         <input type="radio" name="Race" value="White" required> White
                                     </label>
-                                    <label class="btn btn-primary btn-sm">
+                                    <label class="btn btn-primary btn-sm" id = "raceMark1">
+                                        <span class = "glyphicon glyphicon-check" id = "afrAmGlyph" style="display:none"></span>
                                         <input type="radio" name="Race" value="AfrAm" required> African American
                                     </label>
-                                    <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Race" value="Other"  required> Other
-                                    </label>
-                                </div>
+                                 </div>
                             </div>
                         </div>
                     </div>
@@ -67,13 +70,14 @@
                         <div class ="row">
                             <div class ="col-sm-3 col-med-4 col-lg-4">
                                 <div class="btn-group colors" data-toggle="buttons" id ="diab" >
-                                    <label class = "topLabel">Diabetes<br/>History?</label>
-
+                                    <label class = "topLabel">Do you have a <br/> history of diabetes?</label>
                                     <div style="clear: both;"></div>
-                                    <label class="btn btn-primary btn-sm" id = "diabMark"> 
+                                    <label class="btn btn-primary btn-sm" id = "diabMark" id = "diab1"> 
+                                        <span class = "glyphicon glyphicon-check" id = "diabYGlyph" style="display:none"></span>
                                         <input type="radio" name="Diabetes" value="Yes"  required > Yes
                                     </label>
-                                    <label class="btn btn-primary btn-sm">
+                                    <label class="btn btn-primary btn-sm" id = "diabMark1">
+                                        <span class = "glyphicon glyphicon-check" id = "diabNGlyph" style="display:none"></span>
                                         <input type="radio" name="Diabetes" value="No"  required > No
                                     </label>
                                 </div>
@@ -81,24 +85,28 @@
                             <div class ="col-sm-3 col-med-4 col-lg-4">
                                 <div class="btn-group colors" data-toggle="buttons" id ="smok" >
                                     </br>
-                                    <label class = "topLabel">Smoker?</label>
+                                    <label class = "topLabel">Have you ever smoked?</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm" id = "smokeMark"> 
-                                        <input type="radio" name="Smoker" value="Ever"  required> Ever
+                                        <span class = "glyphicon glyphicon-check" id = "smokeYGlyph" style="display:none"></span>
+                                        <input type="radio" name="Smoker" value="Yes"  required> Yes
                                     </label>
-                                    <label class="btn btn-primary btn-sm">
-                                        <input type="radio" name="Smoker" value="Never" required> Never
+                                    <label class="btn btn-primary btn-sm" id = "smokeMark1">
+                                        <span class = "glyphicon glyphicon-check" id = "smokeNGlyph" style="display:none"></span>
+                                        <input type="radio" name="Smoker" value="No" required> No
                                     </label>
                                 </div>
                             </div>
                             <div class ="col-sm-3 col-med-4 col-lg-4">
                                 <div class="btn-group colors" data-toggle="buttons" id ="hbp" >
-                                    <label class = "topLabel">Hypertension<br/>Treatment?</label>
+                                    <label class = "topLabel">Are you currently on </br>hypertension treatment?</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm" id="hyperMark"> 
+                                        <span class = "glyphicon glyphicon-check" id = "hyperYGlyph" style="display:none"></span>
                                         <input type="radio" name="Hypertension" value="Yes"  required > Yes
                                     </label>
-                                    <label class="btn btn-primary btn-sm">
+                                    <label class="btn btn-primary btn-sm" id = "hyperMark1">
+                                        <span class = "glyphicon glyphicon-check" id = "hyperNGlyph" style="display:none"></span>
                                         <input type="radio" name="Hypertension" value="No"  required > No
                                     </label>
                                 </div>
@@ -106,12 +114,14 @@
                             <div class ="col-sm-3 col-med-4 col-lg-4">
                                 <div class="btn-group colors" data-toggle="buttons" id ="stat" >
                                     </br>
-                                    <label class = "topLabel">Statin?</label>
+                                    <label class = "topLabel">Are you currently on </br> Statin therapy?</label>
                                     <div style="clear: both;"></div>
                                     <label class="btn btn-primary btn-sm" id = "statinMark"> 
+                                        <span class = "glyphicon glyphicon-check" id = "statinYGlyph" style="display:none"></span>
                                         <input type="radio" name="Statin" value="Yes"  required> Yes
                                     </label>
-                                    <label class="btn btn-primary btn-sm">
+                                    <label class="btn btn-primary btn-sm" id = "statinMark1">
+                                        <span class = "glyphicon glyphicon-check" id = "statinNGlyph" style="display:none"></span>
                                         <input type="radio" name="Statin" value="No"  required > No
                                     </label>
                                 </div>
@@ -172,12 +182,12 @@
                         
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12 text-center"> 
-                        <button type="button" id = "sub" class="btn btn-primary btn-center text-center" >Estimate Risk</button>
+                        <button type="button" id = "sub" class="btn btn-primary btn-center text-center btn-selected" >Estimate Risk</button>
 
 
 
                         <!-- Modal -->
-                        <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
                             <div class="modal-dialog">
 
                                 <!-- Modal content-->
@@ -185,8 +195,10 @@
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <h4 class="modal-title">Your Results</h4>
+                                        <i class ="fa fa-heartbeat fa-5x" style="color:red"  > </i>   
                                     </div>
                                     <div class="modal-body">
+                                        
                                         <label id ="message" class="result"></label>
 
                                     </div>
@@ -199,7 +211,9 @@
                         </div>
                     </div>
 
-                    <div> <br/><br/><br/>Estimation of Atherosclerotic Cardiovascular Disease Risk in Veterans <a href="https://doi.org/10.1161/circ.139.suppl_1.P373" target ="_blank">https://doi.org/10.1161/circ.139.suppl_1.P373</a></div>
+                    <div class = "discText"> <br/><br/><br/>5-year atherosclerotic cardiovascular disease (ASCVD) risk as predicted by a model derived in more than 1.6 million U.S. Veterans. ASCVD is a composite outcome comprised of ischemic stroke, myocardial infarction, and coronary death. Full methods described in “<strong>Estimation of Atherosclerotic Cardiovascular Disease Risk in a Large Integrated Healthcare System</strong>” (citation pending).
+<br/>
+                        Funded by VA Office of Research & Development (CX001025)</div>
                 </div>    
             </div>
         </form>
