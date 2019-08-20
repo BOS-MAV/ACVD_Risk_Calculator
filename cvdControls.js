@@ -25,7 +25,7 @@ $(document).ready(function () {
     $("#raceMark").tooltip({title: "Please choose White, African American or Other", placement: "bottom", trigger: "manual"});
     $("#BP_Sys").tooltip({title: "Please enter a systolic blood pressure between 80 and 300 mm HG", placement: "right", trigger: "manual"});
     $("#diabMark").tooltip({title: "Please choose either yes or no",placement: "bottom", trigger: "manual"});
-    $("#smokeMark").tooltip({title: "Please choose either ever or never",placement:"bottom",trigger:"manual"});
+    $("#smokeMark").tooltip({title: "Please choose either yes or no",placement:"bottom",trigger:"manual"});
     $("#hyperMark").tooltip({title: "Please choose either yes or no",placement:"bottom",trigger:"manual"});
     $("#statinMark").tooltip({title: "Please choose either yes or no",placement:"bottom", trigger:"manual"});
     $("#BP_Dia").tooltip({title: "Please enter a diastolic blood pressure between 50 and 180 mm HG", placement: "right", trigger: "manual"});
@@ -71,7 +71,7 @@ $(document).ready(function () {
                         else
                         {
                             $("#diabMark").tooltip("hide");
-                            if (($("input[name = 'Smoker']:checked").val() !== 'Ever') && ($("input[name = 'Smoker']:checked").val() !== 'Never'))
+                            if (($("input[name = 'Smoker']:checked").val() !== 'Yes') && ($("input[name = 'Smoker']:checked").val() !== 'No'))
                             {
                                 $("#smokeMark").tooltip("show");
                                 $("#smoker").focus();
