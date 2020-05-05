@@ -5,48 +5,48 @@ function numberFormat(val, decimalPlaces) {
 }
 function calc_risk() {
                 //declare a totscore variable
-
-                var totScore;
+               var totScore;
                 //declare variables to hold the rest
-                var age, age5,age5Weight, sex, sexWeight,race, race_t, raceWeight,diabetes, diabetesWeight, smoker, smokerWeight, hypertension, hypertension_t, statin, statin_t, systolic, diastolic,
-                        totchl, hdl, ldl;
+                var age, age5,age5Weight, sex, sexWeight,race, race_t, raceWeight,diabetes, diabetesWeight, smoker, smokerWeight, 
+                        hypertension, hypertension_t, statin, statin_t, systolic, diastolic,totchl, hdl, ldl;
+                //(05/2020) this now needs to be split out based on statin or not statin use
                 age = parseInt($("#txtAge").val());
                 age5 = age/5;
-                age5Weight = age5*.18860;
+                age5Weight = age5*0.20551;
                 if ($("input[name = 'Sex']:checked").val() === "Male")
-                    sex = 0;
-                else
                     sex = 1;
-                sexWeight = sex * -0.44487;
+                else
+                    sex = 0;
+                sexWeight = sex * 0.46515;
                 race_t = $("input[name = 'Race']:checked").val();
                 if (race_t === 'White')
-                    race = 0;
-                else if (race_t === 'AfrAm')
                     race = 1;
+                else if (race_t === 'African American')
+                    race = 0;
                 else
                     race = 0;
-                raceWeight = race * 0.19447;
+                raceWeight = race * -0.17661;
                 if ($("input[name = 'Diabetes']:checked").val() === "Yes")
                     diabetes = 1;
                 else
                     diabetes = 0;
-                diabetesWeight = diabetes * 0.46548;
-                if ($("input[name = 'Smoker']:checked").val() === "Yes")
+                diabetesWeight = diabetes * 0.48240;
+                if ($("input[name = 'Smoker']:checked").val() === "Ever")
                     smoker = 1;
                 else
                     smoker = 0;
-                smokerWeight = smoker * 0.23196;
+                smokerWeight = smoker * 0.41682;
                 if (parseInt($("#TotChol").val()) > 150 && parseInt($("#TotChol").val()) < 201)
                 {
-                    totchl = 0.00575;
+                    totchl = 0.01114;
                 }
                 else if (parseInt($("#TotChol").val()) > 200 && parseInt($("#TotChol").val()) < 251)
                 {
-                    totchl = 0.14601;
+                    totchl = 0.15278;
                 }
                 else if (parseInt($("#TotChol").val()) > 250)
                 {
-                    totchl = 0.45042;
+                    totchl = 0.45186;
                 }
                 else
                 {
@@ -54,21 +54,20 @@ function calc_risk() {
                 }
                 hdlc=parseInt($("#HDL").val());
                 hdlc10 = hdlc/10;
-                hdlcWeight = hdlc10 * -0.07217;
+                hdlcWeight = hdlc10 * -0.07256;
                 bpSys = parseInt($("#BP_Sys").val());
                 bpSys10 = bpSys/10;
-                bpSysWeight = bpSys10*0.08816;
+                bpSysWeight = bpSys10*0.08852;
                 if ($("input[name = 'Hypertension']:checked").val() === "No")
-                    hypertensionWeight = -0.31039;
-                else
                     hypertensionWeight = 0;
-                if ($("input[name = 'Statin']:checked").val() === "Yes")
-                    statinWeight = -0.08891;
                 else
+                    hypertensionWeight = 0.31875
+                if ($("input[name = 'Statin']:checked").val() === "No")
                     statinWeight = 0;
-
+                else
+                    statinWeight = -0.07573;
                 xbeta = age5Weight + sexWeight + raceWeight + diabetesWeight + smokerWeight + totchl+hdlcWeight+bpSysWeight+hypertensionWeight+statinWeight;
-                eXbeta = Math.exp(xbeta-3.055209856);
-                risk = 1 - Math.pow(0.970787977,eXbeta);
+                eXbeta = Math.exp(xbeta-2.64999);
+                risk = 1 - Math.pow(0.99047,eXbeta);
                 return numberFormat(risk*100,2);
                 }   
