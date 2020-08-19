@@ -67,7 +67,7 @@ function calc_risk() {
                 else
                     statinWeight = -0.07573;
                 xbeta = age5Weight + sexWeight + raceWeight + diabetesWeight + smokerWeight + totchl+hdlcWeight+bpSysWeight+hypertensionWeight+statinWeight;
-                eXbeta = Math.exp(xbeta-2.64999);
-                risk = 1 - Math.pow(0.99047,eXbeta);
+                eXbeta = Math.exp(xbeta-2.93853);
+                risk = 1 - Math.pow(0.98731,eXbeta);
                 return numberFormat(risk*100,2);
                 }   
